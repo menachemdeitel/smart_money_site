@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% block content %}
+  <h2>ניהול תקציב אישי</h2>
+  <form method="POST">
+    <label>הכנסות:</label>
+    <input type="number" name="income" step="0.01" required><br>
+    <label>הוצאות:</label>
+    <input type="number" name="expenses" step="0.01" required><br>
+    <button type="submit">חשב</button>
+  </form>
+  {% if result is not none %}
+    <h3>היתרה שלך היא: {{ result }} ש"ח</h3>
+    {% if result > 0 %}
+      <p style="color:green;">כל הכבוד! אתה חי בעודף.</p>
+    {% elif result < 0 %}
+      <p style="color:red;">שים לב! אתה במינוס.</p>
+    {% else %}
+      <p>אתה בדיוק באיזון.</p>
+    {% endif %}
+  {% endif %}
+{% endblock %}

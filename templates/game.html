@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% block content %}
+  <h2>משחק כלכלי</h2>
+  <p>יש לך תקציב התחלתי של 1000 ש"ח. מה תבחר לעשות?</p>
+  <form method="POST">
+    <input type="hidden" name="balance" value="{{ balance }}">
+    <button type="submit" name="action" value="invest">השקע</button>
+    <button type="submit" name="action" value="spend">בזבז</button>
+  </form>
+  <h3>היתרה הנוכחית: {{ balance }} ש"ח</h3>
+  {% if message %}
+    <p><strong>{{ message }}</strong></p>
+  {% endif %}
+{% endblock %}
